@@ -1,0 +1,251 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
+    background: linear-gradient(180deg, #031522 0%, #06283d 45%, #0b3a53 100%);
+    color: #e8f6ff;
+    min-height: 100vh;
+}
+
+.app-shell {
+    width: min(920px, calc(100% - 32px));
+    margin: 40px auto;
+}
+
+.app-header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.app-header h1 {
+    margin: 0 0 8px;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    letter-spacing: 0.05em;
+}
+
+.subtitle {
+    margin: 0;
+    color: #a9d7ea;
+    font-size: 0.95rem;
+}
+
+.app-main {
+    display: grid;
+    gap: 16px;
+}
+
+.input-panel,
+.status-panel,
+.filter-panel,
+.list-panel {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+    padding: 18px;
+    backdrop-filter: blur(10px);
+}
+
+.input-panel {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr auto;
+    gap: 14px;
+}
+
+#todo-input,
+#category-input,
+#deadline-input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.10);
+    color: #ffffff;
+    font-size: 1rem;
+    outline: none;
+}
+
+#todo-input:focus,
+#category-input:focus,
+#deadline-input:focus {
+    border-color: #73d2ff;
+    box-shadow: 0 0 0 3px rgba(115, 210, 255, 0.18);
+}
+
+#category-input option {
+    background: #06283d;
+    color: #e8f6ff;
+}
+
+button {
+    border: none;
+    border-radius: 12px;
+    padding: 10px 14px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 700;
+    transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+button:hover {
+    transform: translateY(-1px);
+    opacity: 0.92;
+}
+
+#add-btn {
+    background: linear-gradient(135deg, #48c6ef 0%, #1e88e5 100%);
+    color: white;
+    min-width: 88px;
+}
+
+.status-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#todo-count {
+    margin: 0;
+    color: #d9f3ff;
+    font-weight: 700;
+}
+
+#filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#filter-buttons button {
+    background: rgba(255, 255, 255, 0.12);
+    color: #e8f6ff;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+#filter-buttons button.active {
+    background: linear-gradient(135deg, #48c6ef 0%, #1e88e5 100%);
+    color: #ffffff;
+    border-color: transparent;
+    box-shadow: 0 0 0 3px rgba(72, 198, 239, 0.18);
+}
+
+#todo-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 30px;
+}
+
+#todo-list li {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 14px 16px;
+    align-items: start;
+    background: rgba(2, 16, 27, 0.48);
+    border: 1px solid rgba(126, 211, 255, 0.10);
+    border-radius: 16px;
+    padding: 18px;
+    box-shadow: 0  10px 24px rgba(0, 0, 0, 0.18);
+}
+
+#todo-list li > button:first-child {
+    grid-row: span 2;
+    align-self: center;
+    background: rgba(255, 255, 255, 0.10);
+    color: #fff;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    font-size: 1.1rem;
+}
+
+#todo-list li > div {
+    grid-column: 2 / 3;
+    background: rgba(255, 255, 255, 0.08);
+    border-left: 3px solid rgba(115, 210, 255, 0.55);
+    border-radius: 10px;
+    padding: 10px 12px;
+    line-height: 1.7;
+    font-size: 0.92rem;
+    color: #ffffff;
+    opacity: 1;
+    font-weight: 500;
+}
+
+#todo-list li > div::before {
+    color: #a9d7ea;
+    font-weight: 700;
+}
+
+#todo-list li > span:first-of-type {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+#todo-list li > span:nth-of-type(2),
+#todo-list li > span:nth-of-type(3){
+    display: inline-block;
+    margin-right: 8px;
+    font-size: 0.9rem;
+}
+
+#todo-list li > button:not(:first-child) {
+    background: rgba(255, 255, 255, 0.10);
+    color: #e8f6ff;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #9ec6d8;
+    font-size: 0.9rem;
+}
+
+.category-仕事 {
+    color: #66b3ff;
+    font-weight: 700;
+}
+
+.category-勉強 {
+    color: #7ee787;
+    font-weight: 700;
+}
+
+.category-生活 {
+    color: #ffb454;
+    font-weight: 700;
+}
+
+@media (max-width: 768px) {
+    .app-shell {
+        width: min(100% - 20px, 100%);
+        margin: 20px auto;
+    }
+
+    .input-panel {
+        grid-template-columns: 1fr;
+    }
+
+    .status-panel {
+        justify-content: flex-start;
+    }
+
+    #todo-list li {
+        grid-template-columns: 1fr;
+    }
+
+    #todo-list li > button:first-child {
+        grid-row: auto;
+        width: 100%;
+        height: auto;
+        padding: 10px 14px;
+    }
+
+    #todo-list li > div {
+        grid-column: auto;
+    }
+}
